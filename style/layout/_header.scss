@@ -1,0 +1,173 @@
+// Import zmiennych i mixinów
+@import "../utils/variables";
+@import "../utils/mixins";
+
+.header {
+    background: linear-gradient(90deg, $primary-color, $secondary-color);
+    color: $white;
+    padding: 25px 0;
+    text-align: center;
+    position: sticky;
+    top: 0;
+    width: 100%;
+    z-index: 100;
+    height: $header-height;
+    @include box-shadow($box-shadow);
+    font-family: 'Dancing Script', cursive; // Czcionka na całą stronę
+}
+
+.header .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 $nav-padding;
+    position: relative;
+    width: 100%;
+}
+
+/* Logo w nagłówku */
+.header .logo {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start; /* Wersja desktopowa, logo po lewej */
+    text-align: left;
+    margin-right: 50px; /* Zwiększenie odstępu między logo a hamburgerem */
+}
+
+.header .logo img {
+    width: $logo-size;
+    height: $logo-size;
+    border-radius: 50%;
+    margin-right: 15px;
+}
+
+.header .logo h1 {
+    font-size: $font-large;
+    margin: 0;
+    color: $white;
+    font-family: 'Dancing Script', cursive; // Czcionka w logo
+    margin-right: 15px; /* Odstęp między h1 a p */
+}
+
+.header .logo p {
+    font-size: $font-small;
+    color: $white;
+    margin: 0;
+    font-family: 'Dancing Script', cursive; // Czcionka w logo
+}
+
+/* Hamburger Menu */
+.header .hamburger {
+    display: none; /* Ukryj hamburgera domyślnie */
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    width: 30px;
+    height: 25px;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    z-index: 101; /* Ustaw hamburgera nad innymi elementami */
+    position: absolute;
+    right: 60px; /* Ustawienie hamburgera po prawej stronie */
+    top: 20px; /* Ustawienie hamburgera w górnej części nagłówka */
+}
+
+.header .hamburger div {
+    width: 25px;
+    height: 4px;
+    background-color: white;
+    border-radius: 2px;
+}
+
+/* Nawigacja */
+.header nav ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    gap: 15px;
+}
+
+.header nav ul li {
+    margin: 0;
+}
+
+.header nav ul li a {
+    text-decoration: none;
+    color: $white;
+    font-size: $font-medium;
+    font-weight: 600;
+    transition: 0.3s;
+    padding: $nav-link-padding;
+    border-radius: $border-radius;
+    background: rgba(255, 255, 255, 0.2);
+    white-space: nowrap;
+    display: inline-block;
+}
+
+.header nav ul li a:hover {
+    background: rgba(255, 255, 255, 0.4);
+    transform: scale(1.1);
+    @include box-shadow($hover-shadow);
+}
+
+/* Responsywność dla urządzeń mobilnych */
+@include respond($breakpoint-mobile) {
+    .header .hamburger {
+        display: flex; /* Wyświetl hamburgera na urządzeniach mobilnych */
+    }
+
+    .header nav {
+        position: absolute;
+        top: 80px; /* Pozycjonowanie nawigacji poniżej nagłówka */
+        left: 0; /* Wyświetlanie nawigacji od lewej strony */
+        background-color: $primary-color;
+        width: 100%;
+        display: none; /* Ukryj nawigację domyślnie */
+        text-align: center;
+        padding: 20px 0;
+    }
+
+    .header nav.active {
+        display: block; /* Pokaż nawigację po kliknięciu hamburgera */
+    }
+
+    .header nav ul {
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    /* Ustawienie logo i tekstów w wersji mobilnej */
+    .header .logo {
+        display: flex;
+        flex-direction: row;  /* Logo i teksty obok siebie */
+        align-items: center;
+        text-align: left;
+        justify-content: flex-start;
+    }
+    
+    .header .logo img {
+        width: $logo-size;
+        height: $logo-size;
+        border-radius: 50%;
+        margin-right: 15px; /* Odstęp między logo a tekstem */
+    }
+    
+    .header .logo h1 {
+        font-size: $font-large; /* Zwiększamy rozmiar czcionki */
+        margin: 0;
+        color: $white;
+        font-family: 'Dancing Script', cursive; // Czcionka w logo
+        margin-right: 15px; /* Zwiększamy odstęp między h1 a p */
+    }
+    
+    .header .logo p {
+        font-size: $font-small;
+        color: $white;
+        margin: 0;
+        font-family: 'Dancing Script', cursive; // Czcionka w logo
+    }
+}

@@ -1,0 +1,19 @@
+@import "utils/reset";
+@import "utils/variables";
+@import "utils/mixins";
+
+@import "global/cookie-banner";
+
+@import "layout/header";
+@import "layout/footer";
+
+@import "pages/home";
+@import "pages/about";
+@import "pages/offer";
+@import "pages/gallery";
+@import "pages/downloads";
+@import "pages/contact";
+
+@import "pages/oneday";
+@import "pages/threedays.scss";
+@import "pages/workshops";

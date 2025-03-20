@@ -1,0 +1,105 @@
+@import "../utils/variables";
+@import "../utils/mixins";
+
+.footer {
+    color: $white;
+    font-size: $font-small;
+    font-family: 'Dancing Script', cursive;
+    @include box-shadow($box-shadow);
+    background: linear-gradient(90deg, $secondary-color,$primary-color);
+    padding: 20px 0px 0px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+
+    .container {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 0 $nav-padding;
+        width: 100%;
+    }
+
+    /* Nazwa firmy (po lewej) */
+    .footer-brand {
+        font-size: $font-medium;
+        font-weight: bold;
+    }
+
+    /* Kontakt i social media (po prawej) */
+    .footer-contact {
+        display: flex;
+        align-items: center;
+        gap: 15px; // Odstęp między ikonami a kontaktem
+        padding: 10px;
+
+        /* Ikony social media */
+        .social-icons {
+            display: flex;
+            gap: 10px;
+
+            a {
+                font-size: 20px;
+                color: $white;
+                transition: 0.3s;
+
+                &:hover {
+                    transform: scale(1.1);
+                    color: rgba(255, 255, 255, 0.8);
+                }
+            }
+        }
+
+        /* Dane kontaktowe */
+        .contact-info {
+            text-align: right;
+
+            p {
+                margin: 2px 0;
+            }
+
+            a {
+                color: $white;
+                text-decoration: none;
+                transition: 0.3s;
+
+                &:hover {
+                    text-decoration: underline;
+                }
+            }
+        }
+    }
+
+    /* Prawa autorskie (na dole) */
+    .footer-bottom {
+        width: 100%;
+        text-align: center;
+        font-size: 12px;
+        padding: 5px 0; // Zmniejszona wysokość dla stopki
+        background: $light-footer-bg; // Jaśniejszy kolor footera
+        margin: 0; // Usunięty górny margines
+    }
+
+    /* Responsywność */
+    @include respond($breakpoint-mobile) {
+        .container {
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+        }
+
+        .footer-contact {
+            flex-direction: column;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .contact-info {
+            text-align: center;
+        }
+    }
+}
+

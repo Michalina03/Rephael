@@ -1,0 +1,208 @@
+@import "../utils/variables";
+@import "../utils/mixins";
+
+.hero {
+  /* Tło z obrazkiem start.jpg i gradientem */
+  background: linear-gradient(
+      rgba(0, 0, 0, 0.4),
+      rgba(0, 0, 0, 0.4)
+    ),
+    url("../img/start.jpg") no-repeat center center/cover;
+  width: 100%;
+  height: 80vh; /* wysokość hero, możesz dostosować */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  text-align: center;
+  color: $white;
+  @include box-shadow($box-shadow);
+
+  .hero-overlay {
+    max-width: 800px;
+    padding: 0 20px;
+    animation: fadeInUp 1.5s ease forwards;
+
+    h2 {
+      font-size: 48px;
+      font-family: 'Dancing Script', cursive;
+      margin-bottom: 10px;
+    }
+
+    p {
+      font-size: $font-medium;
+      margin-bottom: 20px;
+    }
+
+    .btn-cta {
+      background-color: $btn-cta;
+      color: $white;
+      text-decoration: none;
+      padding: 15px 30px;
+      font-size: $font-medium;
+      border-radius: $border-radius;
+      transition: 0.3s;
+      @include box-shadow($box-shadow);
+
+      &:hover {
+        background-color: $light-btn-cta;
+        transform: scale(1.05);
+      }
+    }
+  }
+}
+
+@keyframes fadeInUp {
+  0% { opacity: 0; transform: translateY(30px); }
+  100% { opacity: 1; transform: translateY(0); }
+}
+
+/* TRIPS */
+.trips {
+  padding: 50px 0;
+  background-color: lighten($green-color, 40%);
+  text-decoration: none;
+
+  .container {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+
+    .trip {
+      background: $white;
+      border-radius: $border-radius;
+      margin: 15px;
+      overflow: hidden;
+      text-align: center;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      @include box-shadow($box-shadow);
+      width: 300px;
+
+      img {
+        width: 100%;
+        height: 200px;
+        object-fit: cover;
+      }
+
+      a {
+        text-decoration: none; /* Usuwa podkreślenie */
+        color: inherit; /* Zachowuje domyślny kolor tekstu */
+        display: block; /* Sprawia, że cały link jest klikalnym blokiem */
+        padding: 15px; /* Dodaje padding, aby kliknięcie było wygodniejsze */
+      }
+
+      h3 {
+        font-family: $heading-font;
+        font-size: $font-medium;
+        margin: 15px 0 10px;
+        color: $primary-color;
+      }
+
+      p {
+        font-family: $body-font;
+        font-size: $font-small;
+        margin: 0 15px 15px;
+        color: $text-color;
+      }
+
+      &:hover {
+        transform: translateY(-5px);
+        @include box-shadow($hover-shadow);
+      }
+    }
+  }
+}
+
+
+/* ABOUT SNIPPET */
+.about-snippet {
+  padding: 50px 0;
+  background: linear-gradient(90deg, $accent-color, $orange-color);
+  color: $white;
+  text-align: center;
+  font-family: $body-font;
+
+  .container {
+    max-width: 800px;
+    margin: 0 auto;
+
+    h2 {
+      font-family: $heading-font;
+      font-size: 36px;
+      margin-bottom: 20px;
+    }
+
+    p {
+      font-size: $font-medium;
+      margin-bottom: 30px;
+    }
+
+    .btn-cta {
+      background-color: $btn-cta;
+      color: $white;
+      padding: 12px 24px;
+      border-radius: $border-radius;
+      text-decoration: none;
+      transition: 0.3s;
+      @include box-shadow($box-shadow);
+
+      &:hover {
+        background-color: $light-btn-cta;
+        transform: scale(1.05);
+      }
+    }
+  }
+}
+
+/* CTA CONTACT */
+.cta-contact {
+  padding: 50px 0;
+  background: linear-gradient(90deg, $green-color, $accent-color);
+  color: $white;
+  text-align: center;
+  font-family: $body-font;
+
+  .container {
+    max-width: 800px;
+    margin: 0 auto;
+
+    h2 {
+      font-family: $heading-font;
+      font-size: 36px;
+      margin-bottom: 15px;
+    }
+
+    p {
+      font-size: $font-medium;
+      margin-bottom: 25px;
+    }
+
+    .btn-cta {
+      background-color: $btn-cta;
+      color: $white;
+      padding: 12px 24px;
+      border-radius: $border-radius;
+      text-decoration: none;
+      transition: 0.3s;
+      @include box-shadow($hover-shadow);
+
+      &:hover {
+        background-color: $light-btn-cta;
+        transform: scale(1.05);
+      }
+    }
+  }
+}
+
+/* Responsive */
+@include respond($breakpoint-mobile) {
+  .hero {
+    height: 60vh;
+
+    .hero-overlay {
+      h2 { font-size: 32px; }
+      p { font-size: 16px; }
+    }
+  }
+  .trips .container { flex-direction: column; align-items: center; }
+}

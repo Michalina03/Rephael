@@ -1,0 +1,94 @@
+@import "../utils/variables";
+@import "../utils/mixins";
+
+.about-us {
+  padding: 50px 0;
+  background-color: lighten($orange-color, 23%);
+  color: $white;
+  text-align: center;
+  font-family: $body-font;
+
+  .container {
+    max-width: 800px;
+    margin: 0 auto;
+
+    h2 {
+      font-family: $heading-font;
+      font-size: 36px;
+      margin-bottom: 20px;
+    }
+
+    p {
+      font-size: $font-medium;
+      line-height: 1.6;
+      margin-bottom: 15px;
+    }
+  }
+}
+
+.our-team {
+  padding: 50px 0;
+  background-color: lighten($green-color, 40%);
+  color: $text-color;
+  text-align: center;
+  font-family: $body-font;
+
+  .container {
+    max-width: 1200px;
+    margin: 0 auto;
+
+    h2 {
+      font-family: $heading-font;
+      font-size: 36px;
+      margin-bottom: 30px;
+      color: $primary-color;
+    }
+
+    .team-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 30px;
+
+      .team-member {
+        background-color: $white;
+        border-radius: $border-radius;
+        padding: 20px;
+        text-align: center;
+        @include box-shadow($box-shadow);
+
+        img {
+          width: 270px; /* Zwiększona szerokość */
+          height: 340px; /* Zwiększona wysokość */
+          object-fit: cover;
+          border-radius: 20px; /* Zaokrąglone rogi, ale nie całkowicie okrągłe */
+          margin-bottom: 15px;
+        }
+
+        h3 {
+          font-family: $heading-font;
+          font-size: $font-medium;
+          margin-bottom: 5px;
+          color: $primary-color;
+        }
+
+        p {
+          font-family: $body-font;
+          font-size: $font-small;
+          margin-bottom: 10px;
+
+          &.desc {
+            font-size: $font-medium;
+            color: $text-color;
+            text-align: justify;
+          }
+        }
+      }
+    }
+  }
+}
+
+@include respond($breakpoint-mobile) {
+  .our-team .container .team-grid {
+    grid-template-columns: 1fr;
+  }
+}

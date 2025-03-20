@@ -1,0 +1,36 @@
+#cookie-banner {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    background: $primary-color;
+    color: $white;
+    text-align: center;
+    padding: 15px;
+    font-family: $body-font;
+    z-index: 1000;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 15px;
+  
+    p {
+      margin: 0;
+      font-size: $font-small;
+    }
+  
+    .btn-cookies {
+      background: $secondary-color;
+      border: none;
+      color: $white;
+      padding: 8px 16px;
+      border-radius: $border-radius;
+      cursor: pointer;
+      transition: background 0.3s;
+  
+      &:hover {
+        background: $accent-color;
+      }
+    }
+  }
+  

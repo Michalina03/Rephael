@@ -1,0 +1,93 @@
+@import "../utils/variables";
+@import "../utils/mixins";
+
+.offer-section {
+  padding: 50px 0;
+  font-family: $body-font;
+  text-align: center;
+
+  .container {
+    max-width: 1200px;
+    margin: 0 auto;
+
+    h2 {
+      font-family: $heading-font;
+      font-size: 36px;
+      color: $primary-color;
+      margin-bottom: 20px;
+    }
+
+    .section-desc {
+      font-size: $font-medium;
+      line-height: 1.6;
+      margin-bottom: 30px;
+      color: $text-color;
+    }
+
+    .offers {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 30px;
+      justify-items: center;
+    }
+
+    .offer-box {
+      background-color: $white;
+      border-radius: $border-radius;
+      padding: 20px;
+      box-shadow: $box-shadow;
+      width: 100%;
+      max-width: 300px;
+
+      h3 {
+        font-family: $heading-font;
+        font-size: $font-medium;
+        color: $primary-color;
+        margin-bottom: 10px;
+      }
+
+      .short-desc {
+        font-size: $font-small;
+        color: $text-color;
+        margin-bottom: 10px;
+      }
+
+      .price {
+        font-size: $font-small;
+        font-weight: bold;
+        color: $accent-color;
+        margin-bottom: 10px;
+      }
+
+      h4 {
+        font-size: $font-small;
+        color: $secondary-color;
+        margin: 15px 0 10px;
+      }
+
+      ul {
+        list-style: disc;
+        margin-left: 20px;
+
+        li {
+          font-size: $font-small;
+          color: $text-color;
+          margin-bottom: 5px;
+        }
+      }
+    }
+  }
+}
+
+// Sekcje z różnymi odcieniami tła
+.oneday  { background-color: lighten($orange-color, 40%); }
+.threedays { background-color: lighten($green-color, 40%); }
+.diet { background-color: lighten($accent-color, 25%); }
+
+@include respond($breakpoint-mobile) {
+  .offer-section {
+    .offers {
+      grid-template-columns: 1fr;
+    }
+  }
+}
